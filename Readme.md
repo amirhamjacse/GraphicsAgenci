@@ -1,5 +1,3 @@
-Here's a comprehensive `README.md` file for your **DesignClock** Django project:
-
 ```markdown
 # DesignClock - Creative Design Agency Website
 
@@ -147,7 +145,7 @@ MIT License - See [LICENSE](LICENSE) file for details
 
 ---
 
-**Developed by** [Your Name]  
+**Developed by** Md Amir Hamja
 **Client**: DesignClock Creative Agency  
 **Version**: 1.0.0
 ```
@@ -165,5 +163,3 @@ To use this README:
 2. Replace placeholder values (like database credentials)
 3. Add your logo if available
 4. Customize the "Contributing" and "License" sections as needed
-
-Would you like me to add any specific additional sections like API documentation or testing instructions?
