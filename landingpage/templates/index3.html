@@ -40,9 +40,15 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 					<ul class="nav navbar-nav menu_nav justify-content-end">
-						{% for section in home_sections|default:[] %}
-						<li class="nav-item"><a class="nav-link" href="#{{ section.section_type|default:'' }}">{{ section.title|default:'' }}</a></li>
-						{% empty %}
+					{% for section in home_sections %}
+						<li class="nav-item">
+							<a class="nav-link" href="#{{ section.section_type|default:'' }}">
+								{{ section.title|default:'' }}
+							</a>
+						</li>
+					{% empty %}
+				
+
 						<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
 						<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
@@ -116,7 +122,7 @@
 			</div>
 		</div>
 		<div class="row feature_inner">
-			{% for service in featured_services|default:[] %}
+			{% for service in featured_services %}
 			<div class="col-lg-3 col-md-6">
 				<div class="feature_item">
 					<img src="{% static 'img/services/s'|add:forloop.counter|add:'.png' %}" alt="{{ service.title|default:'Our Service' }}">
@@ -146,7 +152,7 @@
 		</div>
 		<div class="filters-content">
 			<div class="row portfolio-grid justify-content-center">
-				{% for project in featured_projects|default:[] %}
+				{% for project in featured_projects %}
 				<div class="col-lg-4 col-md-6">
 					<div class="portfolio_box">
 						<div class="single_portfolio">
@@ -188,7 +194,7 @@
 		</div>
 		<div class="row">
 			<div class="testi_slider owl-carousel">
-				{% for testimonial in testimonials|default:[] %}
+				{% for testimonial in testimonials %}
 				<div class="testi_item">
 					<div class="row">
 						<div class="col-lg-4">
@@ -235,7 +241,7 @@
 			</div>
 		</div>
 		<div class="row team_inner">
-			{% for member in team_members|default:[] %}
+			{% for member in team_members %}
 			<div class="col-lg-3 col-md-6">
 				<div class="team_item">
 					<div class="team_img">
