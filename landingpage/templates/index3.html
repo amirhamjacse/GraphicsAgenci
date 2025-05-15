@@ -1,0 +1,336 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+	<title>{{ site_settings.site_name|default:"DesignClock" }}</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'vendors/nice-select/css/nice-select.css' %}">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+	<!--================ Start Header Area =================-->
+	<header class="header_area">
+	<div class="main_menu">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<a class="navbar-brand logo_h" href="index.html">
+					<img src="{% if site_settings.logo %}{{ site_settings.logo.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" alt="{{ site_settings.site_name|default:'DesignClock' }}">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+					<ul class="nav navbar-nav menu_nav justify-content-end">
+						{% for section in home_sections|default:[] %}
+						<li class="nav-item"><a class="nav-link" href="#{{ section.section_type|default:'' }}">{{ section.title|default:'' }}</a></li>
+						{% empty %}
+						<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+						<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+<!--================ End Header Area =================-->
+
+<!--================ Start Home Banner Area =================-->
+<section class="home_banner_area" id="home">
+	<div class="banner_inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<div class="banner_content">
+						<h3 class="text-uppercase">{{ site_settings.hero_subtitle|default:"Hello There" }}</h3>
+						<h1 class="text-uppercase">{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
+						<h5 class="text-uppercase">{{ site_settings.cta_button_text|default:"Creative Design Agency" }}</h5>
+						<div class="d-flex align-items-center">
+							<a class="primary_btn" href="#contact"><span>{{ site_settings.cta_button_text|default:"Hire Us" }}</span></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<div class="home_right_img">
+						<img class="" src="{% if site_settings.hero_image %}{{ site_settings.hero_image.url }}{% else %}{% static 'img/banner/home-right.png' %}{% endif %}" alt="{{ site_settings.hero_title|default:'DesignClock' }}">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================ End Home Banner Area =================-->
+
+<!--================ Start About Us Area =================-->
+<section class="about_area section_gap" id="about">
+	<div class="container">
+		<div class="row justify-content-start align-items-center">
+			<div class="col-lg-5">
+				<div class="about_img">
+					<img class="" src="{% static 'img/about-us.png' %}" alt="About Us">
+				</div>
+			</div>
+
+			<div class="offset-lg-1 col-lg-5">
+				<div class="main_title text-left">
+					<h2>About Our <br> Creative Agency</h2>
+					<p>{{ site_settings.footer_description|default:"We are a team of creative professionals dedicated to delivering exceptional design solutions that help businesses stand out in today's competitive market." }}</p>
+					<a class="primary_btn" href="#"><span>Learn More</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================ End About Us Area =================-->
+
+<!--================ Start Features Area =================-->
+<section class="features_area" id="services">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<div class="main_title">
+					<h2>Our Services</h2>
+					<p>We offer comprehensive design solutions tailored to your business needs</p>
+				</div>
+			</div>
+		</div>
+		<div class="row feature_inner">
+			{% for service in featured_services|default:[] %}
+			<div class="col-lg-3 col-md-6">
+				<div class="feature_item">
+					<img src="{% static 'img/services/s'|add:forloop.counter|add:'.png' %}" alt="{{ service.title|default:'Our Service' }}">
+					<h4>{{ service.title|default:"Professional Service" }}</h4>
+					<p>{{ service.short_description|default:"High-quality professional service delivered by our experts" }}</p>
+				</div>
+			</div>
+			{% empty %}
+			<div class="col-12 text-center">
+				<p>Services coming soon</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<!--================ End Features Area =================-->
+
+<!--================ Start Portfolio Area =================-->
+<section class="portfolio_area" id="portfolio">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="main_title text-left">
+					<h2>Our Projects</h2>
+				</div>
+			</div>
+		</div>
+		<div class="filters-content">
+			<div class="row portfolio-grid justify-content-center">
+				{% for project in featured_projects|default:[] %}
+				<div class="col-lg-4 col-md-6">
+					<div class="portfolio_box">
+						<div class="single_portfolio">
+							<img class="img-fluid w-100" src="{% if project.thumbnail %}{{ project.thumbnail.url }}{% else %}{% static 'img/portfolio/p'|add:forloop.counter|add:'.jpg' %}{% endif %}" alt="{{ project.title|default:'Our Project' }}">
+							<div class="overlay"></div>
+							<a href="{% if project.thumbnail %}{{ project.thumbnail.url }}{% else %}{% static 'img/portfolio/p'|add:forloop.counter|add:'.jpg' %}{% endif %}" class="img-gal">
+								<div class="icon">
+									<span class="lnr lnr-cross"></span>
+								</div>
+							</a>
+						</div>
+						<div class="short_info">
+							<h4>{{ project.title|default:"Project Title" }}</h4>
+							<p>{{ project.project_type|default:"Design Project" }}</p>
+						</div>
+					</div>
+				</div>
+				{% empty %}
+				<div class="col-12 text-center">
+					<p>Portfolio projects coming soon</p>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<!--================ End Portfolio Area =================-->
+
+<!--================ Start Testimonial Area =================-->
+<div class="testimonial_area section_gap_bottom" id="testimonials">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<div class="main_title">
+					<h2>Client Testimonials</h2>
+					<p>What our clients say about our work and services</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="testi_slider owl-carousel">
+				{% for testimonial in testimonials|default:[] %}
+				<div class="testi_item">
+					<div class="row">
+						<div class="col-lg-4">
+							<img src="{% if testimonial.client_photo %}{{ testimonial.client_photo.url }}{% else %}{% static 'img/testimonials/t'|add:forloop.counter|add:'.jpg' %}{% endif %}" alt="{{ testimonial.client_name|default:'Client' }}">
+						</div>
+						<div class="col-lg-8">
+							<div class="testi_text">
+								<h4>{{ testimonial.client_name|default:"Happy Client" }}</h4>
+								<p>{{ testimonial.content|default:"We are extremely satisfied with the quality of work and professional service." }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% empty %}
+				<div class="testi_item">
+					<div class="row">
+						<div class="col-lg-4">
+							<img src="{% static 'img/testimonials/t1.jpg' %}" alt="Client">
+						</div>
+						<div class="col-lg-8">
+							<div class="testi_text">
+								<h4>Sample Client</h4>
+								<p>We are extremely satisfied with the quality of work and professional service.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+<!--================ End Testimonial Area =================-->
+
+<!--================ Start Team Area =================-->
+<section class="team_area section_gap" id="team">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<div class="main_title">
+					<h2>Our Team</h2>
+					<p>Meet our creative professionals</p>
+				</div>
+			</div>
+		</div>
+		<div class="row team_inner">
+			{% for member in team_members|default:[] %}
+			<div class="col-lg-3 col-md-6">
+				<div class="team_item">
+					<div class="team_img">
+						<img class="img-fluid" src="{% if member.photo %}{{ member.photo.url }}{% else %}{% static 'img/team/team'|add:forloop.counter|add:'.jpg' %}{% endif %}" alt="{{ member.name|default:'Team Member' }}">
+					</div>
+					<div class="team_name">
+						<h4>{{ member.name|default:"Team Member" }}</h4>
+						<p>{{ member.position|default:"Designer" }}</p>
+						<div class="social_icons">
+							{% if member.facebook_url %}<a href="{{ member.facebook_url }}"><i class="fa fa-facebook"></i></a>{% endif %}
+							{% if member.twitter_url %}<a href="{{ member.twitter_url }}"><i class="fa fa-twitter"></i></a>{% endif %}
+							{% if member.linkedin_url %}<a href="{{ member.linkedin_url }}"><i class="fa fa-linkedin"></i></a>{% endif %}
+							{% if member.instagram_url %}<a href="{{ member.instagram_url }}"><i class="fa fa-instagram"></i></a>{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			{% empty %}
+			<div class="col-12 text-center">
+				<p>Team members coming soon</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<!--================ End Team Area =================-->
+
+<!--================ Start Newsletter Area =================-->
+<section class="newsletter_area">
+	<div class="container">
+		<div class="row justify-content-center align-items-center">
+			<div class="col-lg-12">
+				<div class="subscription_box text-center">
+					<h2 class="text-uppercase text-white">Get Updates</h2>
+					<p class="text-white">Subscribe to our newsletter for the latest updates</p>
+					<div class="subcribe-form">
+						<form method="post" class="subscription relative">
+							{% csrf_token %}
+							<input name="email" placeholder="Email address" required type="email">
+							<button class="primary-btn hover d-inline">Subscribe</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================ End Newsletter Area =================-->
+
+<!--================Footer Area =================-->
+<footer class="footer_area" id="contact">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-12">
+				<div class="footer_top flex-column">
+					<div class="footer_logo">
+						<a href="#">
+							<img src="{% if site_settings.logo %}{{ site_settings.logo.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" alt="{{ site_settings.site_name|default:'DesignClock' }}">
+						</a>
+						<h4>Follow Us</h4>
+					</div>
+					<div class="footer_social">
+						{% if site_settings.facebook_url %}<a href="{{ site_settings.facebook_url }}"><i class="fa fa-facebook"></i></a>{% endif %}
+						{% if site_settings.twitter_url %}<a href="{{ site_settings.twitter_url }}"><i class="fa fa-twitter"></i></a>{% endif %}
+						{% if site_settings.linkedin_url %}<a href="{{ site_settings.linkedin_url }}"><i class="fa fa-linkedin"></i></a>{% endif %}
+						{% if site_settings.instagram_url %}<a href="{{ site_settings.instagram_url }}"><i class="fa fa-instagram"></i></a>{% endif %}
+						{% if site_settings.github_url %}<a href="{{ site_settings.github_url }}"><i class="fa fa-github"></i></a>{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row footer_bottom justify-content-center">
+			<p class="col-lg-8 col-sm-12 footer-text">
+				&copy; <script>document.write(new Date().getFullYear());</script> {{ site_settings.site_name|default:"DesignClock" }}. 
+				{{ site_settings.footer_description|default:"All rights reserved" }}
+				{% if site_settings.contact_email %} | Email: {{ site_settings.contact_email }}{% endif %}
+				{% if site_settings.contact_phone %} | Phone: {{ site_settings.contact_phone }}{% endif %}
+			</p>
+		</div>
+	</div>
+</footer>
+<!--================End Footer Area =================-->
+
+<!-- JavaScript -->
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/stellar.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'vendors/isotope/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'vendors/isotope/isotope-min.js' %}"></script>
+<script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<script src="{% static 'js/theme.js' %}"></script>
+</body>
+</html>
