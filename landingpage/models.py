@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import URLValidator
 from django.utils.text import slugify
 from django_resized import ResizedImageField  # Requires django-resized package
 
@@ -83,7 +84,38 @@ class TeamMember(models.Model):
     photo = ResizedImageField(size=[400, 400], upload_to='team/', blank=True, null=True)
     is_active = models.BooleanField(default=True)
     order = models.PositiveIntegerField(default=0)
-    social_links = models.JSONField(default=dict, blank=True)  # Stores social media links as JSON
+    facebook_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="Facebook Profile"
+    )
+    twitter_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="Twitter Profile"
+    )
+    linkedin_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="LinkedIn Profile"
+    )
+    instagram_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="Instagram Profile"
+    )
+    github_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="GitHub Profile"
+    )
+
+    # social_links = models.JSONField(default=dict, blank=True)  # Stores social media links as JSON
 
     def __str__(self):
         return f"{self.name} - {self.position}"
@@ -113,11 +145,42 @@ class SiteSetting(models.Model):
     footer_description = models.TextField(blank=True)
     contact_email = models.EmailField(blank=True)
     contact_phone = models.CharField(max_length=20, blank=True)
-    social_links = models.JSONField(default=dict, blank=True)  # Stores social media links as JSON
+    # social_links = models.JSONField(default=dict, blank=True)  # Stores social media links as JSON
     hero_title = models.CharField(max_length=200, blank=True)
     hero_subtitle = models.CharField(max_length=300, blank=True)
     hero_image = ResizedImageField(size=[1600, 900], upload_to='hero/', blank=True, null=True)
     cta_button_text = models.CharField(max_length=50, default="Contact Us")
+    facebook_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="Facebook Profile"
+    )
+    twitter_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="Twitter Profile"
+    )
+    linkedin_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="LinkedIn Profile"
+    )
+    instagram_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="Instagram Profile"
+    )
+    github_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="GitHub Profile"
+    )
+
 
     def __str__(self):
         return self.site_name
