@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.shortcuts import get_object_or_404
+
 
 
 
@@ -82,3 +83,23 @@ class LandPageView(View):
         }
 
         return render(request, 'index3.html', context)
+
+
+def contact_us_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        attachment = request.FILES.get('attachment')
+
+        ContactSubmission.objects.create(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message,
+            attachment=attachment
+        )
+        return redirect('land')  # Or any success response
+
+    return render(request, 'index3.html')

@@ -4,7 +4,8 @@ from landingpage import views
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('land/', views.LandPageView.as_view(), name='index'),
+    path('land/', views.LandPageView.as_view(), name='land'),
+    path('contact/', views.contact_us_view, name='contact_us'),
 ]
 
 
