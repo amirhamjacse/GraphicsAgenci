@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
 
 
 
@@ -87,19 +88,25 @@ class LandPageView(View):
 
 def contact_us_view(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        subject = request.POST.get('subject')
-        message = request.POST.get('message')
-        attachment = request.FILES.get('attachment')
+        try:
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            subject = request.POST.get('subject')
+            message = request.POST.get('message')
+            attachment = request.FILES.get('attachment')
 
-        ContactSubmission.objects.create(
-            name=name,
-            email=email,
-            subject=subject,
-            message=message,
-            attachment=attachment
-        )
-        return redirect('land')  # Or any success response
+            ContactSubmission.objects.create(
+                name=name,
+                email=email,
+                subject=subject,
+                message=message,
+                attachment=attachment
+            )
+            messages.success(request, "Your message has been sent successfully!")
+            return redirect('land')  # Replace 'land' with your success URL name
+
+        except Exception as e:
+            messages.error(request, f"Something went wrong: {e}")
+            # Optionally log the error here
 
     return render(request, 'index3.html')
