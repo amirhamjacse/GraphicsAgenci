@@ -270,25 +270,48 @@
 <!--================ End Team Area =================-->
 
 <!--================ Start Newsletter Area =================-->
-<section class="newsletter_area">
+<section class="contact-us-area py-5 bg-light">
 	<div class="container">
-		<div class="row justify-content-center align-items-center">
-			<div class="col-lg-12">
-				<div class="subscription_box text-center">
-					<h2 class="text-uppercase text-white">Get Updates</h2>
-					<p class="text-white">Subscribe to our newsletter for the latest updates</p>
-					<div class="subcribe-form">
-						<form method="post" class="subscription relative">
-							{% csrf_token %}
-							<input name="email" placeholder="Email address" required type="email">
-							<button class="primary-btn hover d-inline">Subscribe</button>
-						</form>
-					</div>
-				</div>
+	  <div class="row justify-content-center">
+		<div class="col-md-8">
+		  <h2 class="text-center mb-4">Contact Us</h2>
+  
+		  <!-- <form method="post" enctype="multipart/form-data"> -->
+			<form method="post" enctype="multipart/form-data" action="{% url 'contact_us' %}">
+			{% csrf_token %}
+  
+			<div class="form-group">
+			  <label for="name">Name</label>
+			  <input type="text" name="name" class="form-control" placeholder="Your name" required>
 			</div>
+  
+			<div class="form-group">
+			  <label for="email">Email</label>
+			  <input type="email" name="email" class="form-control" placeholder="Your email" required>
+			</div>
+  
+			<div class="form-group">
+			  <label for="subject">Subject</label>
+			  <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+			</div>
+  
+			<div class="form-group">
+			  <label for="message">Message</label>
+			  <textarea name="message" rows="5" class="form-control" placeholder="Your message" required></textarea>
+			</div>
+  
+			<div class="form-group">
+			  <label for="attachment">Attachment (optional)</label>
+			  <input type="file" name="attachment" class="form-control-file">
+			</div>
+  
+			<button type="submit" class="btn btn-primary btn-block">Send Message</button>
+		  </form>
 		</div>
+	  </div>
 	</div>
-</section>
+  </section>
+  
 <!--================ End Newsletter Area =================-->
 
 <!--================Footer Area =================-->
