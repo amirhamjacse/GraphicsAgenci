@@ -129,6 +129,7 @@ class ContactSubmission(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=200)
     message = models.TextField()
+    attachment = models.FileField(upload_to='contact_attachments/', null=True, blank=True)
     submitted_at = models.DateTimeField(auto_now_add=True)
     is_read = models.BooleanField(default=False)
 
