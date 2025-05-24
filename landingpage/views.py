@@ -4,8 +4,6 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 
 
-
-
 class IndexView(View):
     template = "index.html"
     def get(self, request):

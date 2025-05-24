@@ -3,6 +3,7 @@ from django.core.validators import URLValidator
 from django.utils.text import slugify
 from django_resized import ResizedImageField  # Requires django-resized package
 
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True, blank=True)
