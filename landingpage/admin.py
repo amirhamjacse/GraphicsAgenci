@@ -5,9 +5,20 @@ from .models import (Project, Service, BrandingCaseStudy,
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'project_type', 'is_featured', 'created_at')
-    list_filter = ('is_featured', 'created_at')
-    search_fields = ('title', 'description')
+    list_display = (
+        'title',
+        'project_type',
+        'is_featured',
+        'created_at'
+        )
+    list_filter = (
+        'is_featured',
+        'created_at'
+        )
+    search_fields = (
+        'title',
+        'description'
+        )
     prepopulated_fields = {'slug': ('title',)}
 
 @admin.register(Service)
