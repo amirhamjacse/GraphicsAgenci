@@ -18,10 +18,13 @@ from django.conf import settings
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.urls import path, include
+from urlshortner import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('landingpage.urls'))
+    path('', include('landingpage.urls')),
+    path('short-url/', include('urlshortner.urls')),
+    path('<str:short_code>/', views.redirect_url, name='redirect'),
 ]
 
 if settings.DEBUG:
