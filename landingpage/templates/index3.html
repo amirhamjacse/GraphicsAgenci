@@ -15,9 +15,34 @@
 	<link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
 	<link rel="stylesheet" href="{% static 'vendors/nice-select/css/nice-select.css' %}">
+	
 
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<style>
+		/* Make file input look like Bootstrap 5 form-control */
+input[type="file"].form-control-file {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+input[type="file"].form-control-file:focus {
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+}
+	</style>
 </head>
 
 <body>
