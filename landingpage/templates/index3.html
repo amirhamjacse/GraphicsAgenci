@@ -65,6 +65,10 @@ input[type="file"].form-control-file:focus {
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 					<ul class="nav navbar-nav menu_nav justify-content-end">
+						<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+						<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 					{% for section in home_sections %}
 						<li class="nav-item">
 							<a class="nav-link" href="#{{ section.section_type|default:'' }}">
@@ -74,10 +78,6 @@ input[type="file"].form-control-file:focus {
 					{% empty %}
 				
 
-						<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-						<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 						{% endfor %}
 					</ul>
 				</div>
