@@ -135,6 +135,50 @@ input[type="file"].form-control-file:focus {
 </section>
 <!--================ End About Us Area =================-->
 
+<!-- Section 2 - Animated Sequence -->
+<section class="py-5 features_area" style="overflow: hidden; background-color: #f8f9fa;">
+    <div class="container-fluid px-0">
+        <div class="row no-gutters" 
+             style="animation: slide 20s linear infinite;
+                    white-space: nowrap;
+                    width: 200%;">
+            <!-- Sequence Items -->
+            <div class="col-auto p-3">
+                <div class="bg-primary text-white p-4 rounded-circle shadow" 
+                     style="width: 100px; height: 100px;">✹</div>
+            </div>
+            <div class="col-auto p-3">
+                <div class="bg-success text-white p-4 rounded-circle shadow" 
+                     style="width: 100px; height: 100px;">➶</div>
+            </div>
+            <div class="col-auto p-3">
+                <div class="bg-danger text-white p-4 rounded-circle shadow" 
+                     style="width: 100px; height: 100px;">⇆</div>
+            </div>
+            <div class="col-auto p-3">
+                <div class="bg-warning text-dark p-4 rounded-circle shadow" 
+                     style="width: 100px; height: 100px;">⇉</div>
+            </div>
+            <!-- Repeat same elements for seamless loop -->
+            <div class="col-auto p-3">
+                <div class="bg-primary text-white p-4 rounded-circle shadow" 
+                     style="width: 100px; height: 100px;">✹</div>
+            </div>
+            <div class="col-auto p-3">
+                <div class="bg-success text-white p-4 rounded-circle shadow" 
+                     style="width: 100px; height: 100px;">➶</div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</section>
+
 <!--================ Start Features Area =================-->
 <section class="features_area" id="services">
 	<div class="container">
