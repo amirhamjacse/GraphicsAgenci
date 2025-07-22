@@ -88,6 +88,37 @@ input[type="file"].form-control-file:focus {
 <!--================ End Header Area =================-->
 
 <!--================ Start Home Banner Area =================-->
+<section>
+<div class="position-relative" style="height: 100vh; overflow: hidden;">
+
+	<!-- Background Image -->
+	<img class="" src="{% if site_settings.hero_image %}{{ site_settings.hero_image.url }}{% else %}{% static 'img/banner/home-right.png' %}{% endif %}" alt="{{ site_settings.hero_title|default:'DesignClock' }}
+	alt="Banner" style="
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  z-index: 1;
+	">
+  
+	<!-- Overlay Content -->
+	<div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center" style="position: relative; z-index: 2; color: white;">
+  
+	  <div class="home_slider_content">
+		<h1 class="home_slider_title text-light" style=" font-size: 2.5rem; font-weight: bold;">A new Online Shop experience.</h1>
+  
+		<p class="home_slider_subtitle" style="max-width: 700px; margin: 20px auto;">
+		  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.
+		</p>
+  
+		<a href="#" class="btn btn-light btn-lg mt-3">Shop Now</a>
+	  </div>
+  
+	</div>
+  </div>
+</section>
 <section class="home_banner_area" id="home">
 	<div class="banner_inner">
 		<div class="container">
@@ -111,6 +142,10 @@ input[type="file"].form-control-file:focus {
 		</div>
 	</div>
 </section>
+
+
+
+
 <!--================ End Home Banner Area =================-->
 
 <!--================ Start About Us Area =================-->
