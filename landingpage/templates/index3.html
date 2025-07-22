@@ -134,9 +134,39 @@ input[type="file"].form-control-file:focus {
 	</div>
 </section>
 <!--================ End About Us Area =================-->
+<section class="py-5 features_area" style="overflow: hidden; background-color: #f8f9fa;">
+<div class="container-fluid" style="overflow: hidden; position: relative; height: 100px;">
+    <div id="logo-marquee" style="display: flex; position: absolute; left: 100%; top: 0;">
+      <!-- Logo 1 -->
+      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #28a745; border-radius: 10px;">
+        <img src="https://via.placeholder.com/40?text=1" alt="Logo 1" style="max-width: 60%; max-height: 60%;">
+      </div>
+
+      <!-- Logo 2 -->
+      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #007bff; border-radius: 10px;">
+        <img src="https://via.placeholder.com/40?text=2" alt="Logo 2" style="max-width: 60%; max-height: 60%;">
+      </div>
+
+      <!-- Logo 3 -->
+      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #ffc107; border-radius: 10px;">
+        <img src="https://via.placeholder.com/40?text=3" alt="Logo 3" style="max-width: 60%; max-height: 60%;">
+      </div>
+
+      <!-- Logo 4 -->
+      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #6f42c1; border-radius: 10px;">
+        <img src="https://via.placeholder.com/40?text=4" alt="Logo 4" style="max-width: 60%; max-height: 60%;">
+      </div>
+
+      <!-- Logo 5 -->
+      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #17a2b8; border-radius: 10px;">
+        <img src="https://via.placeholder.com/40?text=5" alt="Logo 5" style="max-width: 60%; max-height: 60%;">
+      </div>
+    </div>
+  </div>
+  </section>
 
 <!-- Section 2 - Animated Sequence -->
-<section class="py-5 features_area" style="overflow: hidden; background-color: #f8f9fa;">
+{% comment %} 
     <div class="container-fluid px-0">
         <div class="row no-gutters" 
              style="animation: slide 20s linear infinite;
@@ -177,7 +207,7 @@ input[type="file"].form-control-file:focus {
             100% { transform: translateX(-50%); }
         }
     </style>
-</section>
+</section> {% endcomment %}
 
 <!--================ Start Features Area =================-->
 <section class="features_area" id="services">
@@ -456,5 +486,23 @@ input[type="file"].form-control-file:focus {
 <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
 <script src="{% static 'js/mail-script.js' %}"></script>
 <script src="{% static 'js/theme.js' %}"></script>
+<script>
+    const marquee = document.getElementById("logo-marquee");
+    let position = window.innerWidth;
+
+    function animateMarquee() {
+      position -= 1; // speed of scroll
+      marquee.style.left = position + "px";
+
+      // Reset to start once fully off-screen
+      if (position < -marquee.offsetWidth) {
+        position = window.innerWidth;
+      }
+
+      requestAnimationFrame(animateMarquee);
+    }
+
+    animateMarquee();
+  </script>
 </body>
 </html>
