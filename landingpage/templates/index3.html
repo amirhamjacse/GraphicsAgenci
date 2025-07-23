@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
 	<link rel="stylesheet" href="{% static 'vendors/nice-select/css/nice-select.css' %}">
+	<!-- Option 1: Include in HTML -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	
 
 	<!-- Main CSS -->
@@ -241,33 +243,41 @@ input[type="file"].form-control-file:focus {
 
 
 <!--================ Start Features Area =================-->
-<section class="features_area" id="services">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-8 text-center">
-				<div class="main_title">
-					<h2>Our Services</h2>
-					<p>We offer comprehensive design solutions tailored to your business needs</p>
-				</div>
-			</div>
-		</div>
-		<div class="row feature_inner">
-			{% for service in featured_services %}
-			<div class="col-lg-3 col-md-6">
-				<div class="feature_item">
-					<img src="{% static 'img/services/s'|add:forloop.counter|add:'.png' %}" alt="{{ service.title|default:'Our Service' }}">
-					<h4>{{ service.title|default:"Professional Service" }}</h4>
-					<p>{{ service.short_description|default:"High-quality professional service delivered by our experts" }}</p>
-				</div>
-			</div>
-			{% empty %}
-			<div class="col-12 text-center">
-				<p>Services coming soon</p>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
+<section class="features_area" id="services" style="padding: 80px 0; background: #ffffff;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="main_title">
+                    <h1 style="font-size: 36px; font-weight: 700; color: #222; margin-bottom: 20px;">Our Services</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row feature_inner" style="">
+            {% for service in featured_services %}
+            <div class="col-lg-4 col-md-4" style="margin-bottom: 40px;">
+                <div class="feature_item" style="padding: 30px; background: #f9f9f9; border-radius: 8px; height: 100%;">
+                    <div style="display: flex; align-items: flex-start;">
+                        <div style="margin-right: 20px; width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+							{% if service.logo %}
+								<img src="{{ service.logo.url }}" alt="{{ service.title|default:'Service Logo' }}" style="width: 100%; height: 100%; object-fit: cover;">
+							{% endif %}
+						</div>
+                        <div>
+                            <h2 style="font-size: 24px; font-weight: 600; color: #222; margin-bottom: 15px;">{{ service.title|default:"Professional Service" }}</h2>
+                            <p style="color: #666; line-height: 1.6;">{{ service.short_description|default:"High-quality professional service delivered by our experts" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p style="color: #666;">Services coming soon</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
+
 <!--================ End Features Area =================-->
 
 

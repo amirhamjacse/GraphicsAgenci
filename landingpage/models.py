@@ -32,6 +32,7 @@ class Service(models.Model):
     short_description = models.CharField(max_length=200, blank=True)
     description = models.TextField(blank=True)
     icon = models.CharField(max_length=50, blank=True)  # Or use an ImageField for icons
+    logo = ResizedImageField(size=[300, 200], upload_to='services/', blank=True, null=True)
     is_featured = models.BooleanField(default=False)
     order = models.PositiveIntegerField(default=0)
 
