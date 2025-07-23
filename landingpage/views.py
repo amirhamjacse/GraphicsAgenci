@@ -24,6 +24,9 @@ def index(request):
         # Projects
         'featured_projects': Project.objects.filter(is_featured=True)[:4],
         'all_projects': Project.objects.all().order_by('-created_at'),
+
+        # moveable logo
+        'moveable_logo': MoveableLogo.objects.fileter(is_active=True),
         
         # Services
         'featured_services': Service.objects.filter(is_featured=True)[:6],

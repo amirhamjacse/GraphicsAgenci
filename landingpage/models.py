@@ -193,6 +193,23 @@ class SiteSetting(models.Model):
         verbose_name_plural = "Site Settings"
 
 
+class MoveableLogo(models.Model):
+    name = models.CharField(max_length=100)
+    detail = models.TextField(blank=True, null=True)
+    icon = ResizedImageField(
+        size=[200, 200],
+        upload_to='icons/',
+        blank=True,
+        null=True
+    )
+    order = models.PositiveIntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
 class HomeSection(models.Model):
     SECTION_CHOICES = [
         ('projects', 'Projects View'),
