@@ -1,7 +1,8 @@
 from django.contrib import admin
 from .models import (Project, Service, BrandingCaseStudy, 
                     Testimonial, TeamMember, ContactSubmission,
-                    SiteSetting, HomeSection)
+                    SiteSetting, HomeSection,
+                    MoveableLogo)
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -57,3 +58,14 @@ class SiteSettingAdmin(admin.ModelAdmin):
 class HomeSectionAdmin(admin.ModelAdmin):
     list_display = ('section_type', 'title', 'is_active', 'order')
     list_editable = ('is_active', 'order')
+
+@admin.register(MoveableLogo)
+class Moveablelogoadmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'detail',
+        'icon',
+        'order',
+        'is_active',
+        'created_at',
+    )

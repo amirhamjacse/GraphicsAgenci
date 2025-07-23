@@ -196,9 +196,10 @@ class SiteSetting(models.Model):
 class MoveableLogo(models.Model):
     name = models.CharField(max_length=100)
     detail = models.TextField(blank=True, null=True)
+    color_code = models.CharField(max_length=20)
     icon = ResizedImageField(
         size=[200, 200],
-        upload_to='icons/',
+        upload_to='mvicons/',
         blank=True,
         null=True
     )

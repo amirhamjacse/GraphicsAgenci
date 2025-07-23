@@ -148,7 +148,7 @@ input[type="file"].form-control-file:focus {
 <!--================ End Home Banner Area =================-->
 
 <!--================ Start About Us Area =================-->
-<section class="about_area section_gap" id="about">
+<section class="about_area section_gap" style="margin:0px; padding:0px;" id="about">
 	<div class="container">
 		<div class="row justify-content-start align-items-center">
 			<div class="col-lg-5">
@@ -168,44 +168,36 @@ input[type="file"].form-control-file:focus {
 	</div>
 </section>
 <!--================ End About Us Area =================-->
-<section class="py-5 features_area" style="overflow: hidden; background-color: #f8f9fa;">
+<section class="py-1 features_area" style="margin:0px; padding:0px; overflow: hidden; background-color: #f8f9fa;">
 <div class="container-fluid" style="overflow: hidden; position: relative; height: 100px;">
     <div id="logo-marquee" style="display: flex; position: absolute; left: 100%; top: 0;">
+			{% for moveablelogo in moveable_logo %}
+			<div class="d-flex justify-content-center align-items-center" 
+				style="width: 80px; height: 80px; margin: 0 10px; background-color: #{{ moveablelogo.color_code }}; border-radius: 10px;">
+				{% if moveablelogo.icon %}
+					<img src="{{ moveablelogo.icon.url }}" 
+						alt="{{ moveablelogo.name|default:'Partner Logo' }}" 
+						style="max-width: 100%; max-height: 100%; padding: 10px; object-fit: contain;">
+				{% else %}
+					<span style="color: white; font-size: 12px;">No Logo</span>
+				{% endif %}
+			</div>
+		{% empty %}
+			<p>No logos available</p>
+		{% endfor %}
       <!-- Logo 1 -->
-      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #28a745; border-radius: 10px;">
-        <img src="https://via.placeholder.com/40?text=1" alt="Logo 1" style="max-width: 60%; max-height: 60%;">
-      </div>
 
-      <!-- Logo 2 -->
-      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #007bff; border-radius: 10px;">
-        <img src="https://via.placeholder.com/40?text=2" alt="Logo 2" style="max-width: 60%; max-height: 60%;">
-      </div>
-
-      <!-- Logo 3 -->
-      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #ffc107; border-radius: 10px;">
-        <img src="https://via.placeholder.com/40?text=3" alt="Logo 3" style="max-width: 60%; max-height: 60%;">
-      </div>
-
-      <!-- Logo 4 -->
-      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #6f42c1; border-radius: 10px;">
-        <img src="https://via.placeholder.com/40?text=4" alt="Logo 4" style="max-width: 60%; max-height: 60%;">
-      </div>
-
-      <!-- Logo 5 -->
-      <div class="d-flex justify-content-center align-items-center" style="width: 80px; height: 80px; margin: 0 10px; background-color: #17a2b8; border-radius: 10px;">
-        <img src="https://via.placeholder.com/40?text=5" alt="Logo 5" style="max-width: 60%; max-height: 60%;">
-      </div>
     </div>
   </div>
   </section>
 
 
   <!--================ Start Portfolio Area =================-->
-<section class="portfolio_area" id="portfolio" style="padding: 80px 0; background: #f9f9f9;">
+<section class="portfolio_area" id="portfolio" style="margin:0px; padding:0px; background: #f9f9f9;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="main_title text-left" style="margin-bottom: 50px;">
+                <div class="main_title text-center" style="margin-bottom: 50px;">
                     <h2 style="font-size: 36px; font-weight: 700; color: #222;">Projects View</h2>
                 </div>
             </div>
@@ -243,11 +235,11 @@ input[type="file"].form-control-file:focus {
 
 
 <!--================ Start Features Area =================-->
-<section class="features_area" id="services" style="padding: 80px 0; background: #ffffff;">
+<section class="features_area" id="services" style="margin:0px; padding:0px; background: #ffffff;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <div class="main_title">
+                <div class="main_title" style="margin:0px; padding:0px;">
                     <h1 style="font-size: 36px; font-weight: 700; color: #222; margin-bottom: 20px;">Our Services</h1>
                 </div>
             </div>
@@ -283,12 +275,12 @@ input[type="file"].form-control-file:focus {
 
 
 <!--================ Start Testimonial Area =================-->
-<div class="testimonial_area section_gap_bottom" id="testimonials" style="padding: 80px 0; background: #f9f9f9;">
+<div class="testimonial_area section_gap_bottom" id="testimonials" style="margin:0px; padding:0px; background: #f9f9f9;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <div class="main_title">
-                    <h2 style="font-size: 36px; font-weight: 700; color: #222; margin-bottom: 15px;">Hear from them</h2>
+                <div class="main_title" style="margin:0px; padding:0px;">
+                    <h2 style="font-size: 36px; font-weight: 700; color: #222;">Hear from them</h2>
                 </div>
             </div>
         </div>
@@ -378,7 +370,7 @@ input[type="file"].form-control-file:focus {
 <!--================ End Team Area =================-->
 
 <!--================ Start Newsletter Area =================-->
-<section class="contact-us-area py-5 bg-light">
+<section class="contact-us-area bg-light pb-2" style="margin:0px; padding:0px;">
 	<div class="container">
 	  <div class="row justify-content-center">
 		<div class="col-md-8">
@@ -423,7 +415,7 @@ input[type="file"].form-control-file:focus {
 <!--================ End Newsletter Area =================-->
 
 <!--================Footer Area =================-->
-<footer class="footer_area bg-dark text-light pt-5" id="contact" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+<footer class="footer_area bg-dark text-light" id="contact" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-lg-12">

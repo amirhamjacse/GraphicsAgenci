@@ -26,7 +26,7 @@ def index(request):
         'all_projects': Project.objects.all().order_by('-created_at'),
 
         # moveable logo
-        'moveable_logo': MoveableLogo.objects.fileter(is_active=True),
+        'moveable_logo': MoveableLogo.objects.filter(is_active=True),
         
         # Services
         'featured_services': Service.objects.filter(is_featured=True)[:6],
@@ -45,6 +45,8 @@ def index(request):
         'contact_email': SiteSetting.objects.first().contact_email,
         'contact_phone': SiteSetting.objects.first().contact_phone
     }
+    # a = MoveableLogo.objects.all()
+    # print(a, "-----------------")
     return render(request, 'index.html', context)
 
 from django.views import View
@@ -69,6 +71,10 @@ class LandPageView(View):
             # Services
             'featured_services': Service.objects.filter(is_featured=True)[:6],
             'all_services': Service.objects.all().order_by('order'),
+
+            # moveable_logo
+            'moveable_logo': MoveableLogo.objects.filter(is_active=True),
+        
 
             # Case Studies
             'case_studies': BrandingCaseStudy.objects.filter(is_active=True)[:3],
