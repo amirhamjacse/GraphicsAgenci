@@ -88,7 +88,7 @@ input[type="file"].form-control-file:focus {
 <!--================ End Header Area =================-->
 
 <!--================ Start Home Banner Area =================-->
-<section>
+<section class="home_banner_area" id="home">
 <div class="position-relative" style="height: 100vh; overflow: hidden;">
 
 	<!-- Background Image -->
@@ -107,19 +107,16 @@ input[type="file"].form-control-file:focus {
 	<div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center" style="position: relative; z-index: 2; color: white;">
   
 	  <div class="home_slider_content">
-		<h1 class="home_slider_title text-light" style=" font-size: 2.5rem; font-weight: bold;">A new Online Shop experience.</h1>
-  
-		<p class="home_slider_subtitle" style="max-width: 700px; margin: 20px auto;">
-		  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.
-		</p>
-  
-		<a href="#" class="btn btn-light btn-lg mt-3">Shop Now</a>
+		<h3 class="text-uppercase">{{ site_settings.hero_subtitle|default:"Hello There" }}</h3>
+		<h1 class="text-uppercase">{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
+		<h5 class="text-uppercase">{{ site_settings.cta_button_text|default:"Creative Design Agency" }}</h5>
+		<a href="#" class="primary_btn btn btn-light btn-lg mt-3">{{ site_settings.cta_button_text|default:"Hire Us" }}</a>
 	  </div>
   
 	</div>
   </div>
 </section>
-<section class="home_banner_area" id="home">
+<!-- <section class="home_banner_area" id="home">
 	<div class="banner_inner">
 		<div class="container">
 			<div class="row">
@@ -141,7 +138,7 @@ input[type="file"].form-control-file:focus {
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 
 
@@ -162,7 +159,7 @@ input[type="file"].form-control-file:focus {
 				<div class="main_title text-left">
 					<h2>About Our <br> Creative Agency</h2>
 					<p>{{ site_settings.footer_description|default:"We are a team of creative professionals dedicated to delivering exceptional design solutions that help businesses stand out in today's competitive market." }}</p>
-					<a class="primary_btn" href="#"><span>Learn More</span></a>
+					<!-- <a class="primary_btn" href="#"><span>Learn More</span></a> -->
 				</div>
 			</div>
 		</div>
