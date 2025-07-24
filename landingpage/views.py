@@ -5,7 +5,7 @@ from django.contrib import messages
 
 
 class IndexView(View):
-    template = "index.html"
+    template = "index6.html"
     def get(self, request):
         return render(request, self.template)
 
@@ -47,7 +47,7 @@ def index(request):
     }
     # a = MoveableLogo.objects.all()
     # print(a, "-----------------")
-    return render(request, 'index.html', context)
+    return render(request, 'index6.html', context)
 
 from django.views import View
 from django.shortcuts import render
