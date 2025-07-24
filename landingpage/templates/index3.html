@@ -71,6 +71,8 @@ input[type="file"].form-control-file:focus {
 						<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
 						<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
 						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="#case">Case Study</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonials">Client Review</a></li>
 					{% for section in home_sections %}
 						<li class="nav-item">
 							<a class="nav-link" href="#{{ section.section_type|default:'' }}">
@@ -274,7 +276,7 @@ input[type="file"].form-control-file:focus {
 
 
 
-<section class="branding-case-study py-5" style="background: #f9f9f9;">
+<section class="branding-case-study py-5" id="case" style="background: #f9f9f9;">
     <div class="container">
        <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
