@@ -230,3 +230,19 @@ class HomeSection(models.Model):
 
     class Meta:
         ordering = ['order']
+
+
+# class BrandingCaseStudy(models.Model):
+#     name = models.CharField(max_length=100)
+#     image = models.ImageField(upload_to='branding_case_studies/')
+#     is_active = models.BooleanField(default=True)
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
+    
+#     class Meta:
+#         verbose_name_plural = "Branding Case Studies"
+#         ordering = ['-created_at']
+    
+#     def __str__(self):
+#         return self.name
+    
