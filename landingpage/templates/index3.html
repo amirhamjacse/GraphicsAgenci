@@ -148,7 +148,7 @@ input[type="file"].form-control-file:focus {
 <!--================ End Home Banner Area =================-->
 
 <!--================ Start About Us Area =================-->
-<section class="about_area section_gap" style="margin:0px; padding:0px;" id="about">
+<section class="about_area section_gap pt-5" style="margin:0px; padding:0px;" id="about">
 	<div class="container">
 		<div class="row justify-content-start align-items-center">
 			<div class="col-lg-5">
@@ -485,6 +485,12 @@ input[type="file"].form-control-file:focus {
               {% if site_settings.github_url %}
               <a href="{{ site_settings.github_url }}" target="_blank" class="text-light mx-2" style="font-size: 1.4rem;">
                 <i class="fa fa-github"></i>
+              </a>
+              {% endif %}
+              {% if site_settings.dribble_url %}
+              <a href="{{ site_settings.dribble_url }}" target="_blank" class="text-light mx-2" style="font-size: 1.4rem;">
+                <i class="fa fa-dribbble"></i>
+                <!-- <i class="fa fa-" aria-hidden="true"></i> -->
               </a>
               {% endif %}
             </div>

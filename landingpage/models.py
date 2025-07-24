@@ -183,6 +183,12 @@ class SiteSetting(models.Model):
         validators=[URLValidator()],
         verbose_name="GitHub Profile"
     )
+    dribble_url = models.URLField(
+        blank=True,
+        null=True,
+        validators=[URLValidator()],
+        verbose_name="Dribble Profile"
+    )
 
 
     def __str__(self):
