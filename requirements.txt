@@ -5,7 +5,7 @@ Django==4.2.21
 django-jazzmin @ git+https://github.com/farridav/django-jazzmin.git@d269874c96fe5ff6d231c3017cdd4650bc2f3105
 django-resized==1.0.3
 pillow==10.4.0
-psycopg2-binary==2.9.10
+# psycopg2-binary==2.9.10
 pycparser==2.22
 PyMySQL==1.1.1
 python-decouple==3.8
