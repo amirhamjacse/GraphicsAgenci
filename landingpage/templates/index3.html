@@ -701,9 +701,37 @@ input[type="file"].form-control-file:focus {
 
     animateMarquee();
   </script> -->
+<script>
+  const marqueeLeft = document.getElementById("marquee-left");
+  const marqueeRight = document.getElementById("marquee-right");
 
+  const screenWidth = window.innerWidth;
 
-  <script>
+  // Start at visible positions
+  let posLeft = 0; // Left edge
+  let posRight = screenWidth - marqueeRight.offsetWidth; // Right edge visible
+
+  function animate() {
+    // Left → Right
+    posLeft += 0.5; // speed
+    if (posLeft > screenWidth) {
+      posLeft = -marqueeLeft.offsetWidth; // Reset off-screen left
+    }
+    marqueeLeft.style.left = posLeft + "px";
+
+    // Right → Left
+    posRight -= 0.5; // speed
+    if (posRight < -marqueeRight.offsetWidth) {
+      posRight = screenWidth; // Reset off-screen right
+    }
+    marqueeRight.style.left = posRight + "px";
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+  <!-- <script>
   const marqueeLeft = document.getElementById("marquee-left");
   const marqueeRight = document.getElementById("marquee-right");
 
@@ -729,7 +757,7 @@ input[type="file"].form-control-file:focus {
   }
 
   animate();
-</script>
+</script> -->
 
 </body>
 </html>
