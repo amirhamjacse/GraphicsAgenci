@@ -55,7 +55,7 @@ input[type="file"].form-control-file:focus {
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<a class="navbar-brand logo_h" href="index.html">
+				<a class="navbar-brand logo_h" href="{% url 'index' %}"> 
 					<img src="{% if site_settings.logo %}{{ site_settings.logo.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" alt="{{ site_settings.site_name|default:'DesignClock' }}">
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -113,8 +113,8 @@ input[type="file"].form-control-file:focus {
 	  <div class="home_slider_content">
 		<h3 class="text-uppercase">{{ site_settings.hero_subtitle|default:"Hello There" }}</h3>
 		<h1 class="text-uppercase">{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
-		<h5 class="text-uppercase">{{ site_settings.cta_button_text|default:"Creative Design Agency" }}</h5>
-		<a href="#" class="primary_btn btn btn-light btn-lg mt-3">{{ site_settings.cta_button_text|default:"Hire Us" }}</a>
+		<!-- <h5 class="text-uppercase">{{ site_settings.cta_button_text|default:"Creative Design Agency" }}</h5> -->
+		<a href="#contact" class="primary_btn btn btn-light btn-lg mt-3">{{ site_settings.cta_button_text|default:"Hire Us" }}</a>
 	  </div>
   
 	</div>
