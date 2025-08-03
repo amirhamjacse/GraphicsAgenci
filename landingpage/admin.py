@@ -69,3 +69,23 @@ class Moveablelogoadmin(admin.ModelAdmin):
         'is_active',
         'created_at',
     )
+
+
+from .models import About
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ('title', 'subtitle', 'created_at', 'updated_at')  # Columns in admin list view
+    search_fields = ('title', 'subtitle')  # Searchable fields
+    list_filter = ('created_at', 'updated_at')  # Filter sidebar
+    readonly_fields = ('created_at', 'updated_at')  # Make timestamps read-only
+
+    fieldsets = (
+        ('About Content', {
+            'fields': ('title', 'subtitle', 'description', 'image')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',),
+        }),
+    )

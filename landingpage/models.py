@@ -252,3 +252,18 @@ class HomeSection(models.Model):
 #     def __str__(self):
 #         return self.name
     
+
+class About(models.Model):
+    title = models.CharField(max_length=200, help_text="Main heading for About section")
+    subtitle = models.CharField(max_length=255, blank=True, null=True, help_text="Optional subheading")
+    description = models.TextField(help_text="Detailed description about your company or service")
+    image = models.ImageField(upload_to='about/', blank=True, null=True, help_text="Upload an image for the About section")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "About Section"
+        verbose_name_plural = "About Sections"
+
+    def __str__(self):
+        return self.title
