@@ -2914,7 +2914,9 @@ h6 {
     margin-bottom: 23px; }
 
   .header_area .navbar {
-    background: #000; }
+    background: #fffefe;
+    color:#000
+  }
 
   .navbar-toggler[aria-expanded="false"] span:nth-child(2) {
     opacity: 1; }
@@ -2963,7 +2965,7 @@ h6 {
     display: block;
     border-bottom: 1px solid #ededed33;
     border-radius: 0px;
-    color: #fff; }
+    color: #000000; }
 
   .header_area .navbar .search {
     margin-left: 0px; }
@@ -2985,7 +2987,7 @@ h6 {
 
   .header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
     line-height: 40px;
-    color: #fff; }
+    color: #000000; }
 
   .header_area.white_menu.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
     line-height: 40px;

@@ -4249,10 +4249,12 @@ input[type=submit].btn-block {
     padding: .25rem .75rem;
     font-size: 1.25rem;
     line-height: 1;
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: .25rem
+    background-color: #000;  /* Black background */
+    color: #fff;             /* White icon (hamburger) */
+    border: 1px solid #000;  /* Black border */
+    border-radius: .25rem;
 }
+
 
 .navbar-toggler:focus,
 .navbar-toggler:hover {
