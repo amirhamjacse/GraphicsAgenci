@@ -150,7 +150,32 @@ input[type="file"].form-control-file:focus {
 <!--================ End Home Banner Area =================-->
 
 <!--================ Start About Us Area =================-->
+
 <section class="about_area section_gap pt-5" style="margin:0px; padding:0px;" id="about">
+    <div class="container">
+        <div class="row justify-content-start align-items-center">
+            <div class="col-lg-5">
+                <div class="about_img">
+                    {% if about.image %}
+                        <img class="" src="{{ about.image.url }}" alt="{{ about.title }}">
+                    {% else %}
+                        <img class="" src="{% static 'img/about-us.png' %}" alt="About Us">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="offset-lg-1 col-lg-5">
+                <div class="main_title text-left">
+                    <h2>{{ about.title|default:"About Our" }}<br>{{ about.subtitle|default:"Creative Agency" }}</h2>
+                    <p>{{ about.description|default:"We are a team of creative professionals dedicated to delivering exceptional design solutions that help businesses stand out in today's competitive market." }}</p>
+                    <!-- <a class="primary_btn" href="#"><span>Learn More</span></a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="about_area section_gap pt-5" style="margin:0px; padding:0px;" id="about">
 	<div class="container">
 		<div class="row justify-content-start align-items-center">
 			<div class="col-lg-5">
@@ -163,12 +188,12 @@ input[type="file"].form-control-file:focus {
 				<div class="main_title text-left">
 					<h2>About Our <br> Creative Agency</h2>
 					<p>{{ site_settings.footer_description|default:"We are a team of creative professionals dedicated to delivering exceptional design solutions that help businesses stand out in today's competitive market." }}</p>
-					<!-- <a class="primary_btn" href="#"><span>Learn More</span></a> -->
+
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!--================ End About Us Area =================-->
 <section class="py-1 features_area" style="margin:0px; padding:0px; overflow: hidden; background-color: #f8f9fa;">
 <div class="container-fluid" style="overflow: hidden; position: relative; height: 100px;">
@@ -515,7 +540,7 @@ input[type="file"].form-control-file:focus {
 <!--================ End Newsletter Area =================-->
 
 <!--================Footer Area =================-->
-<footer class="footer_area bg-dark text-light" id="contact" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+<footer class="footer_area" id="contact" style="background-color:#222; color:#f9f9f9 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div class="container">
     <div class="row justify-content-center text-center">
       <div class="col-lg-12">
@@ -568,7 +593,7 @@ input[type="file"].form-control-file:focus {
     </div>
 
     <div class="row footer_bottom justify-content-center border-top border-secondary pt-3">
-      <p class="col-lg-8 col-sm-12 footer-text text-center small">
+      <p class="col-lg-8 col-sm-12 footer-text text-center small" style="color:#f8f9fa">
         &copy; <script>document.write(new Date().getFullYear());</script> {{ site_settings.site_name|default:"Amir Hamja" }}. 
         {{ site_settings.footer_description|default:"All rights reserved" }}
         {% if site_settings.contact_email %} | Email: <a href="mailto:{{ site_settings.contact_email }}" class="text-light">{{ site_settings.contact_email }}</a>{% endif %}
