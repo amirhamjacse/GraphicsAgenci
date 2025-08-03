@@ -20,6 +20,9 @@ def index(request):
         
         # Home Sections
         'home_sections': HomeSection.objects.filter(is_active=True).order_by('order'),
+
+        #about section
+        'about': About.objects.first(),
         
         # Projects
         'featured_projects': Project.objects.filter(is_featured=True)[:4],
@@ -63,6 +66,9 @@ class LandPageView(View):
 
             # Home Sections
             'home_sections': HomeSection.objects.filter(is_active=True).order_by('order'),
+
+            #about section
+            'about': About.objects.first(),
 
             # Projects
             'featured_projects': Project.objects.filter(is_featured=True)[:4],
