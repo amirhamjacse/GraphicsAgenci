@@ -33,7 +33,7 @@ def index(request):
         'all_services': Service.objects.all().order_by('order'),
         
         # Case Studies
-        'case_studies': BrandingCaseStudy.objects.filter(is_active=True)[:3],
+        'case_studies': BrandingCaseStudy.objects.filter(is_active=True)[:4],
         
         # Testimonials
         'testimonials': Testimonial.objects.filter(is_featured=True),
