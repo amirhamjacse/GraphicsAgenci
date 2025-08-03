@@ -104,22 +104,31 @@ def contact_us_view(request):
         try:
             name = request.POST.get('name')
             email = request.POST.get('email')
+            phone = request.POST.get('phone')  # New phone field
             subject = request.POST.get('subject')
             message = request.POST.get('message')
             attachment = request.FILES.get('attachment')
 
+            # Validate file size (10 MB max)
+            if attachment and attachment.size > 10 * 1024 * 1024:  # 10 MB
+                messages.error(request, "File size cannot exceed 10 MB.")
+                return redirect('index')  # Change 'land' to your redirect page name
+
+            # Create contact submission
             ContactSubmission.objects.create(
                 name=name,
                 email=email,
+                phone=phone,
                 subject=subject,
                 message=message,
                 attachment=attachment
             )
-            messages.success(request, "Your message has been sent successfully!")
-            return redirect('land')  # Replace 'land' with your success URL name
+
+            messages.success(request, "Your message has been sent successfully!Thank you")
+            return redirect('index')  # Replace 'land' with your success URL name
 
         except Exception as e:
             messages.error(request, f"Something went wrong: {e}")
-            # Optionally log the error here
+            # You can log the error for debugging purposes
 
     return render(request, 'index3.html')
