@@ -129,6 +129,7 @@ class TeamMember(models.Model):
 class ContactSubmission(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
+    phone = models.CharField(max_length=20, blank=True, null=True, help_text="Include country code, e.g. +1 234 567 890")
     subject = models.CharField(max_length=200)
     message = models.TextField()
     attachment = models.FileField(upload_to='contact_attachments/', null=True, blank=True)
