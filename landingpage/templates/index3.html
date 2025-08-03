@@ -148,10 +148,10 @@ input[type="file"].form-control-file:focus {
 	<div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center" style="position: relative; z-index: 2; color: white;">
   
 	  <div class="home_slider_content">
+      <h1 class="text-uppercase">{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
 		<h3 class="text-uppercase">{{ site_settings.hero_subtitle|default:"Hello There" }}</h3>
-		<h1 class="text-uppercase">{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
 		<!-- <h5 class="text-uppercase">{{ site_settings.cta_button_text|default:"Creative Design Agency" }}</h5> -->
-		<a href="#contact" class="primary_btn btn btn-light btn-lg mt-3">{{ site_settings.cta_button_text|default:"Hire Us" }}</a>
+		<a href="#contact" class="primary_btn btn btn-lg mt-3">{{ site_settings.cta_button_text|default:"Hire Us" }}</a>
 	  </div>
   
 	</div>
