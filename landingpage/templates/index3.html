@@ -150,8 +150,8 @@ input[type="file"].form-control-file:focus {
 	<div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center" style="position: relative; z-index: 2; color: white;">
   
 	  <div class="home_slider_content">
-      <h1 class="text-uppercase">{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
-		<h3 class="text-uppercase">{{ site_settings.hero_subtitle|default:"Hello There" }}</h3>
+      <h1 class="text-">{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
+		<h3 class="text-">{{ site_settings.hero_subtitle|default:"Hello There" }}</h3>
 		<!-- <h5 class="text-uppercase">{{ site_settings.cta_button_text|default:"Creative Design Agency" }}</h5> -->
 		<a href="#contact" class="primary_btn btn btn-lg mt-3">{{ site_settings.cta_button_text|default:"Hire Us" }}</a>
 	  </div>
@@ -187,6 +187,53 @@ input[type="file"].form-control-file:focus {
 
 
 <!--================ End Home Banner Area =================-->
+
+<section  class="py-1 features_area" style="margin:0px; padding:0px; overflow: hidden; background-color: #f8f9fa;">
+<div class="container-fluid" style="overflow: hidden; position: relative; height: 100px;">
+    <div id="marquee-left" style="display: flex; position: absolute; left: 100%; top: 0;">
+			{% for moveablelogo in moveable_logo %}
+			<div class="d-flex justify-content-center align-items-center" 
+				style="width: 80px; height: 80px; margin: 0 20px; background-color: #{{ moveablelogo.color_code }}; border-radius: 10px;">
+				{% if moveablelogo.icon %}
+					<img src="{{ moveablelogo.icon.url }}" 
+						alt="{{ moveablelogo.name|default:'Partner Logo' }}" 
+						style="max-width: 100%; max-height: 100%; padding: 10px; object-fit: contain;">
+				{% else %}
+					<span style="color: white; font-size: 12px;">No Logo</span>
+				{% endif %}
+			</div>
+		{% empty %}
+			<p>No logos available</p>
+		{% endfor %}
+      <!-- Logo 1 -->
+
+    </div>
+  </div>
+  </section>
+
+  <section  class="py-1 features_area" style="margin:0px; padding:0px; overflow: hidden; background-color: #f8f9fa;">
+<div class="container-fluid" style="overflow: hidden; position: relative; height: 100px;">
+    <div id="marquee-right" style="display: flex; position: absolute; left: 100%; top: 0;">
+			{% for moveablelogo in moveable_logo %}
+			<div class="d-flex justify-content-center align-items-center" 
+				style="width: 80px; height: 80px; margin: 0 20px; background-color: #{{ moveablelogo.color_code }}; border-radius: 10px;">
+				{% if moveablelogo.icon %}
+					<img src="{{ moveablelogo.icon.url }}" 
+						alt="{{ moveablelogo.name|default:'Partner Logo' }}" 
+						style="max-width: 100%; max-height: 100%; padding: 10px; object-fit: contain;">
+				{% else %}
+					<span style="color: white; font-size: 12px;">No Logo</span>
+				{% endif %}
+			</div>
+		{% empty %}
+			<p>No logos available</p>
+		{% endfor %}
+      <!-- Logo 1 -->
+
+    </div>
+  </div>
+  </section>
+
 
 <!--================ Start About Us Area =================-->
 
@@ -235,51 +282,7 @@ input[type="file"].form-control-file:focus {
 	</div>
 </section> -->
 <!--================ End About Us Area =================-->
-<section  class="py-1 features_area" style="margin:0px; padding:0px; overflow: hidden; background-color: #f8f9fa;">
-<div class="container-fluid" style="overflow: hidden; position: relative; height: 100px;">
-    <div id="marquee-left" style="display: flex; position: absolute; left: 100%; top: 0;">
-			{% for moveablelogo in moveable_logo %}
-			<div class="d-flex justify-content-center align-items-center" 
-				style="width: 80px; height: 80px; margin: 0 20px; background-color: #{{ moveablelogo.color_code }}; border-radius: 10px;">
-				{% if moveablelogo.icon %}
-					<img src="{{ moveablelogo.icon.url }}" 
-						alt="{{ moveablelogo.name|default:'Partner Logo' }}" 
-						style="max-width: 100%; max-height: 100%; padding: 10px; object-fit: contain;">
-				{% else %}
-					<span style="color: white; font-size: 12px;">No Logo</span>
-				{% endif %}
-			</div>
-		{% empty %}
-			<p>No logos available</p>
-		{% endfor %}
-      <!-- Logo 1 -->
 
-    </div>
-  </div>
-  </section>
-
-  <section  class="py-1 features_area" style="margin:0px; padding:0px; overflow: hidden; background-color: #f8f9fa;">
-<div class="container-fluid" style="overflow: hidden; position: relative; height: 100px;">
-    <div id="marquee-right" style="display: flex; position: absolute; left: 100%; top: 0;">
-			{% for moveablelogo in moveable_logo %}
-			<div class="d-flex justify-content-center align-items-center" 
-				style="width: 80px; height: 80px; margin: 0 20px; background-color: #{{ moveablelogo.color_code }}; border-radius: 10px;">
-				{% if moveablelogo.icon %}
-					<img src="{{ moveablelogo.icon.url }}" 
-						alt="{{ moveablelogo.name|default:'Partner Logo' }}" 
-						style="max-width: 100%; max-height: 100%; padding: 10px; object-fit: contain;">
-				{% else %}
-					<span style="color: white; font-size: 12px;">No Logo</span>
-				{% endif %}
-			</div>
-		{% empty %}
-			<p>No logos available</p>
-		{% endfor %}
-      <!-- Logo 1 -->
-
-    </div>
-  </div>
-  </section>
 
 
   <!--================ Start Portfolio Area =================-->
@@ -295,7 +298,7 @@ input[type="file"].form-control-file:focus {
         <div class="filters-content">
             <div class="row portfolio-grid justify-content-center">
                 {% for project in featured_projects %}
-                <div class="col-lg-6 col-md-6" style="margin-bottom: 30px;">
+                <div class="col-lg-6 col-md-6" style="">
                     <div class="portfolio_box" style="background: #fff; border-radius: 5px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                         <div class="single_portfolio" style="position: relative;">
                             <img class="img-fluid w-100" src="{% if project.thumbnail %}{{ project.thumbnail.url }}{% else %}{% static 'img/portfolio/p'|add:forloop.counter|add:'.jpg' %}{% endif %}" alt="{{ project.title|default:'Our Project' }}" style="height: 300px; object-fit: cover;">
@@ -306,7 +309,7 @@ input[type="file"].form-control-file:focus {
                                 </div>
                             </a>
                         </div>
-                        <div class="short_info" style="padding: 10px;">
+                        <div class="m-2" style="padding: 10px;">
                             <h4 style="font-size: 24px; font-weight: 600; margin-bottom: 5px; color: #222;">{{ project.title|default:"Project Title" }}</h4>
                             <p style="color: #777; margin-bottom: 0;">{{ project.project_type|default:"Design Project" }}</p>
                         </div>
