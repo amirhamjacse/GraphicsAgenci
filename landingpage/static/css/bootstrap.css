@@ -4250,7 +4250,7 @@ input[type=submit].btn-block {
     font-size: 1.25rem;
     line-height: 1;
     background-color: #000;  /* Black background */
-    color: #fff;             /* White icon (hamburger) */
+    color: #000000;             /* White icon (hamburger) */
     border: 1px solid #000;  /* Black border */
     border-radius: .25rem;
 }
@@ -4518,7 +4518,7 @@ input[type=submit].btn-block {
 
 .navbar-light .navbar-toggler {
     color: rgba(0, 0, 0, .5);
-    border-color: rgba(0, 0, 0, .1)
+    border-color: rgba(0, 0, 0, 0.1)
 }
 
 .navbar-light .navbar-toggler-icon {

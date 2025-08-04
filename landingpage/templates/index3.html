@@ -48,9 +48,11 @@ input[type="file"].form-control-file:focus {
 <body>
 
 	<!--================ Start Header Area =================-->
-	<header class="header_area">
+<header class="header_area" style="padding-top:0rem !important; padding-bottom:0rem !important;">
+
 	<div class="main_menu">
-		<nav class="navbar navbar-expand-lg navbar-light">
+		<!-- <nav class="navbar navbar-expand-lg navbar-light"> -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top:0rem; padding-bottom:0rem;">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<a class="navbar-brand logo_h" href="{% url 'index' %}"> 
@@ -188,15 +190,15 @@ input[type="file"].form-control-file:focus {
 
 <!--================ Start About Us Area =================-->
 
-<section class="about_area section_gap pt-5" style="margin:0px; padding:0px;" id="about">
+<section class="about_area section_gap pt-" style="margin:0px; padding:0px;" id="about">
     <div class="container">
         <div class="row justify-content-start align-items-center">
-            <div class="col-lg-5">
-                <div class="about_img">
+            <div class="col-lg-5 col-12 col-sm-12">
+                <div class=" col-12 col-sm-12">
                     {% if about.image %}
-                        <img class="" src="{{ about.image.url }}" alt="{{ about.title }}">
+                        <img class="col-12 col-sm-12" src="{{ about.image.url }}" alt="{{ about.title }}">
                     {% else %}
-                        <img class="" src="{% static 'img/about-us.png' %}" alt="About Us">
+                        <img class="col-12 col-sm-12" src="{% static 'img/about-us.png' %}" alt="About Us">
                     {% endif %}
                 </div>
             </div>

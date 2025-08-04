@@ -215,6 +215,7 @@ button:focus {
   position: absolute;
   width: 100%;
   z-index: 9999;
+
   background: #ffffff; }
   .header_area .menu_nav {
     width: 100%; }
@@ -222,6 +223,8 @@ button:focus {
     background: transparent;
     padding: 0px;
     border: 0px;
+    margin:0px;
+    padding:0px;
     border-radius: 0px;
     width: 100%; }
     .header_area .navbar .nav .nav-item {
@@ -2938,7 +2941,7 @@ h6 {
     display: block;
     width: 25px;
     height: 3px;
-    background: #fff;
+    background: #000000;
     margin: auto;
     margin-bottom: 4px;
     transition: all 400ms linear;
