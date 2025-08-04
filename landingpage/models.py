@@ -147,6 +147,7 @@ class SiteSetting(models.Model):
     site_name = models.CharField(max_length=100, default="DesignClock")
     logo = ResizedImageField(size=[300, 100], upload_to='site/', blank=True, null=True)
     footer_description = models.TextField(blank=True)
+    footer_logo = ResizedImageField(size=[300, 100], upload_to='site/', blank=True, null=True)
     contact_email = models.EmailField(blank=True)
     contact_phone = models.CharField(max_length=20, blank=True)
     # social_links = models.JSONField(default=dict, blank=True)  # Stores social media links as JSON
