@@ -132,3 +132,55 @@ def contact_us_view(request):
             # You can log the error for debugging purposes
 
     return render(request, 'index3.html')
+
+from django.views.generic import DetailView
+from .models import BrandingCaseStudy
+
+# class BrandingCaseStudyDetailView(DetailView):
+#     model = BrandingCaseStudy
+#     template_name = 'branding_case_study_detail.html'
+#     context_object_name = 'case_study'
+
+
+# class BrandingCaseStudyDetailView(DetailView):
+#     model = BrandingCaseStudy
+#     template_name = 'branding_case_study_detail.html'
+#     context_object_name = 'case_study'
+    
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         # Add any additional context you want available in the template
+#         context['site_settings'] = get_object_or_404(SiteSetting)
+#         return context
+
+class BrandingCaseStudyDetailView(DetailView):
+    model = BrandingCaseStudy
+    template_name = 'branding_case_study_detail.html'
+    context_object_name = 'case_study'
+
+    def get_queryset(self):
+        # Only active case studies
+        return BrandingCaseStudy.objects.filter(is_active=True)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        case_study = self.object
+
+        # Add site settings
+        context['site_settings'] = get_object_or_404(SiteSetting)
+
+        # Next case study (created_at less than current)
+        next_case = BrandingCaseStudy.objects.filter(
+            created_at__lt=case_study.created_at,
+            is_active=True
+        ).order_by('-created_at').first()
+
+        # Previous case study (created_at greater than current)
+        previous_case = BrandingCaseStudy.objects.filter(
+            created_at__gt=case_study.created_at,
+            is_active=True
+        ).order_by('created_at').first()
+
+        context['next_case'] = next_case
+        context['previous_case'] = previous_case
+        return context

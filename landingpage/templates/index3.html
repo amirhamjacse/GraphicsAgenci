@@ -52,7 +52,7 @@ input[type="file"].form-control-file:focus {
 
 	<div class="main_menu">
 		<!-- <nav class="navbar navbar-expand-lg navbar-light"> -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top:0rem; padding-bottom:0rem;">
+      <nav class="navbar navbar-expand-lg " style="background-color:rgb(0, 0, 0); color:rgb(255, 255, 255); padding-top:0rem; padding-bottom:0rem;">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<a class="navbar-brand logo_h" href="{% url 'index' %}"> 
@@ -67,12 +67,12 @@ input[type="file"].form-control-file:focus {
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 					<ul class="nav navbar-nav menu_nav justify-content-end">
-						<li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-						<li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
-						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="#case">Case Study</a></li>
-            <li class="nav-item"><a class="nav-link" href="#testimonials">Client Review</a></li>
+						<li class="nav-item"><a class="nav-link" style="color:rgb(255, 255, 255);" href="{% url 'index' %}">Home</a></li>
+						<li class="nav-item"><a class="nav-link" style="color:rgb(255, 255, 255);" href="#services">Services</a></li>
+						<li class="nav-item"><a class="nav-link" style="color:rgb(255, 255, 255);" href="#portfolio">Projects</a></li>
+						<li class="nav-item"><a class="nav-link" style="color:rgb(255, 255, 255);" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" style="color:rgb(255, 255, 255);" href="#case">Case Study</a></li>
+            <li class="nav-item"><a class="nav-link" style="color:rgb(255, 255, 255);" href="#testimonials">Client Review</a></li>
 					{% for section in home_sections %}
 						<li class="nav-item">
 							<a class="nav-link" href="#{{ section.section_type|default:'' }}">
@@ -153,7 +153,10 @@ input[type="file"].form-control-file:focus {
       <h1 class="text-">{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
 		<h3 class="text-">{{ site_settings.hero_subtitle|default:"Hello There" }}</h3>
 		<!-- <h5 class="text-uppercase">{{ site_settings.cta_button_text|default:"Creative Design Agency" }}</h5> -->
-		<a href="#contact" class="primary_btn btn btn-lg mt-3">{{ site_settings.cta_button_text|default:"Hire Us" }}</a>
+     <a href="#contact" style="background-color: #ff590d; color: #fff; border: none;" class="btn btn-lg mt-3">
+  {{ site_settings.cta_button_text|default:"Hire Us" }}
+</a>
+
 	  </div>
   
 	</div>
@@ -342,11 +345,22 @@ input[type="file"].form-control-file:focus {
             <div class="col-lg-4 col-md-4" style="margin-bottom: 40px;">
                 <div class="feature_item" style="padding: 30px; background: #ffffff; border-radius: 8px; height: 100%;">
                     <div style="display: flex; align-items: flex-start;">
-                        <div style="margin-right: 20px; width: 60px; height: 60px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-							{% if service.logo %}
-								<img src="{{ service.logo.url }}" alt="{{ service.title|default:'Service Logo' }}" style="width: 100%; height: 100%; object-fit: cover;">
-							{% endif %}
-						</div>
+                   <div style="position: relative; margin-right: 20px; width: 60px; height: 60px; border-radius: 50%; overflow: hidden; background: #f0f0f0;">
+  {% if service.logo %}
+    <img src="{{ service.logo.url }}" alt="{{ service.title|default:'Service Logo' }}" 
+         style="
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           width: auto;
+           height: 100%;
+           min-width: 100%;
+           transform: translate(-50%, -50%);
+           object-fit: cover;
+         ">
+  {% endif %}
+</div>
+
                         <div>
                             <h2 style="font-size: 24px; font-weight: 600; color: #222; margin-bottom: 15px;">{{ service.title|default:"Professional Service" }}</h2>
                             <p style="color: #666; line-height: 1.6;">{{ service.description|default:"High-quality professional service delivered by our experts" }}</p>
@@ -394,7 +408,7 @@ input[type="file"].form-control-file:focus {
         
     </div>
 </section> -->
-<section class="branding-case-study py-5" id="case" style="background: #f9f9f9;">
+{% comment %} <section class="branding-case-study py-5" id="case" style="background: #f9f9f9;">
     <div class="container">
         <div class="row justify-content-center mb-4">
             <div class="col-lg-8 text-center">
@@ -460,7 +474,37 @@ input[type="file"].form-control-file:focus {
             {% endfor %}
         </div>
     </div>
+</section> {% endcomment %}
+<section class="branding-case-study py-5" id="case" style="background: #f9f9f9;">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8 text-center">
+                <h1 style="font-size: 36px; font-weight: 700; color: #222;">Case Study</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            {% for case in case_studies %}
+            <div class="col-lg-4 col-md-4 col-sm-4 mb-4 justify-content-center">
+                <div class="brand-item text-center">
+                    <div class="brand-image-container mb-3">
+                        <!-- Make the image a clickable link to detail page -->
+                        <a href="{% url 'branding_case_study_detail' case.pk %}">
+                            <img src="{{ case.logo.url }}" alt="{{ case.name }}" class="img-fluid">
+                        </a>
+                    </div>
+                    <h4 class="brand-name">
+                        <a href="{% url 'branding_case_study_detail' case.pk %}" style="text-decoration: none; color: inherit;">
+                            {{ case.name }}
+                        </a>
+                    </h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
+
 
 
 <!--================ Start Testimonial Area =================-->
@@ -471,7 +515,7 @@ input[type="file"].form-control-file:focus {
                               <!-- <div class="main_title" style="margin:0px; padding:0px;"> -->
 
                 <div class="" style="margin:0px; padding:0px;">
-                    <h2 style="font-size: 36px; font-weight: 700; color: #222;">Hear from them</h2>
+                    <h2 style="font-size: 36px; font-weight: 700; color: #222;">What our clients have to say</h2>
                 </div>
             </div>
         </div>

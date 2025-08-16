@@ -1,0 +1,39 @@
+<!--================ Start Header Area =================-->
+<header class="header_area" style="padding-top:0rem !important; padding-bottom:0rem !important;">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top:0rem; padding-bottom:0rem;">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <a class="navbar-brand logo_h" href="{% url 'index' %}"> 
+            <img src="{% if site_settings.logo %}{{ site_settings.logo.url }}{% else %}{% static 'img/logo.png' %}{% endif %}" alt="{{ site_settings.site_name|default:'DesignClock' }}">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav justify-content-end">
+              <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="#case">Case Study</a></li>
+              <li class="nav-item"><a class="nav-link" href="#testimonials">Client Review</a></li>
+            {% for section in home_sections %}
+              <li class="nav-item">
+                <a class="nav-link" href="#{{ section.section_type|default:'' }}">
+                  {{ section.title|default:'' }}
+                </a>
+              </li>
+            {% empty %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!--================ End Header Area =================-->

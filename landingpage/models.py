@@ -63,6 +63,31 @@ class BrandingCaseStudy(models.Model):
         ordering = ['-created_at']
 
 
+class BrandingCaseStudySection(models.Model):
+    case_study = models.ForeignKey(
+        'BrandingCaseStudy',
+        on_delete=models.CASCADE,
+        related_name='sections'
+    )
+    title = models.CharField(max_length=200, blank=True)
+    image = ResizedImageField(
+        size=[800, 600],                  # Resize image to 800x600
+        upload_to='case_study_sections/', 
+        blank=True, 
+        null=True
+    )
+    description = models.TextField(blank=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title or f"Section {self.pk} for {self.case_study.name}"
+
+
+
+
 class Testimonial(models.Model):
     client_name = models.CharField(max_length=100)
     client_title = models.CharField(max_length=100, blank=True)

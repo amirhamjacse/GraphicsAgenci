@@ -89,3 +89,27 @@ class AboutAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
         }),
     )
+
+
+from .models import BrandingCaseStudy, BrandingCaseStudySection
+
+class BrandingCaseStudySectionInline(admin.TabularInline):
+    model = BrandingCaseStudySection
+    extra = 1
+
+# @admin.register(BrandingCaseStudy)
+# class BrandingCaseStudyAdmin(admin.ModelAdmin):
+#     inlines = [BrandingCaseStudySectionInline]
+#     list_display = ['name', 'is_active', 'created_at']
+
+class BrandingCaseStudySectionInline(admin.StackedInline):  # or TabularInline for a simpler table-style layout
+    model = BrandingCaseStudySection
+    extra = 1  # How many empty forms to show
+    fields = ['title', 'image', 'description', 'order']
+    ordering = ['order']
+@admin.register(BrandingCaseStudySection)
+class BrandingCaseStudySectionAdmin(admin.ModelAdmin):
+    list_display = ['title', 'case_study', 'order']
+    list_filter = ['case_study']
+    search_fields = ['title', 'description']
+    ordering = ['case_study', 'order']
