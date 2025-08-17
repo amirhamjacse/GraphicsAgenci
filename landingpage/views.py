@@ -200,7 +200,8 @@ class ProjectDetailView(DetailView):
         project = self.object
 
         # 🔹 Add related sections
-        context['sections'] = ProjectSection.objects.filter(project_sec=project)
+        context['sections'] = ProjectSection.objects.filter(
+            project_sec=project).order_by('order')
 
         # 🔹 Add site settings (if you have)
         try:
