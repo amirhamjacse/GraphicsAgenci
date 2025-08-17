@@ -416,39 +416,33 @@ input[type="file"].form-control-file:focus {
 
 
 <!--================ Start Features Area =================-->
-<section class="features_area" id="services" style="margin:0px; padding:0px; background: #f9f9f9;">
+<section class="features_area" id="services" style="margin: 0; padding: 0; background: #f9f9f9;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <div class="main_title" style="margin:0px; padding:0px;">
+                <div class="main_title" style="margin: 0; padding: 0;">
                     <h1 style="font-size: 36px; font-weight: 700; color: #222; margin-bottom: 20px;">Our Services</h1>
                 </div>
             </div>
         </div>
-        <div class="row feature_inner" style="">
+        <div class="row feature_inner" style="display: flex; flex-wrap: wrap;">
             {% for service in featured_services %}
             <div class="col-lg-4 col-md-4" style="margin-bottom: 40px;">
-                <div class="feature_item" style="padding: 30px; background: #ffffff; border-radius: 8px; height: 100%;">
+                <div class="feature_item" style="padding: 20px; background: #ffffff; border-radius: 8px; min-height: 300px; display: flex; flex-direction: column; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                     <div style="display: flex; align-items: flex-start;">
-                   <div style="position: relative; margin-right: 20px; width: 60px; height: 60px; border-radius: 50%; overflow: hidden; background: #f0f0f0;">
-  {% if service.logo %}
-    <img src="{{ service.logo.url }}" alt="{{ service.title|default:'Service Logo' }}" 
-         style="
-           position: absolute;
-           top: 50%;
-           left: 50%;
-           width: auto;
-           height: 100%;
-           min-width: 100%;
-           transform: translate(-50%, -50%);
-           object-fit: cover;
-         ">
-  {% endif %}
-</div>
-
-                        <div>
-                            <h2 style="font-size: 24px; font-weight: 600; color: #222; margin-bottom: 15px;">{{ service.title|default:"Professional Service" }}</h2>
-                            <p style="color: #666; line-height: 1.6;">{{ service.description|default:"High-quality professional service delivered by our experts" }}</p>
+                        <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; background: #f0f0f0; margin-right: 15px; flex-shrink: 0;">
+                            {% if service.logo %}
+                            <img src="{{ service.logo.url }}" alt="{{ service.title|default:'Service Logo' }}" 
+                                 style="width: 100%; height: 100%; object-fit: cover;">
+                            {% endif %}
+                        </div>
+                        <div style="flex: 1; min-width: 0; width: 100%;">
+                            <h2 style="font-size: 20px; font-weight: 600; color: #222; margin-bottom: 10px; line-height: 1.3; word-wrap: break-word;">
+                                {{ service.title|default:"Professional Service" }}
+                            </h2>
+                            <p style="color: #666; line-height: 1.5; font-size: 14px; word-wrap: break-word;">
+                                {{ service.description|default:"High-quality professional service delivered by our experts" }}
+                            </p>
                         </div>
                     </div>
                 </div>
