@@ -71,7 +71,7 @@ class LandPageView(View):
             'about': About.objects.first(),
 
             # Projects
-            'featured_projects': Project.objects.filter(is_featured=True)[:4],
+            'featured_projects': Project.objects.filter(is_featured=True)[:6],
             'all_projects': Project.objects.all().order_by('-created_at'),
 
             # Services
@@ -83,7 +83,7 @@ class LandPageView(View):
         
 
             # Case Studies
-            'case_studies': BrandingCaseStudy.objects.filter(is_active=True)[:3],
+            'case_studies': BrandingCaseStudy.objects.filter(is_active=True)[:6],
 
             # Testimonials
             'testimonials': Testimonial.objects.filter(is_featured=True),
