@@ -9,7 +9,9 @@ class Project(models.Model):
     slug = models.SlugField(max_length=100, unique=True, blank=True)
     description = models.TextField(blank=True)
     project_type = models.CharField(max_length=100, blank=True)  # e.g., "Animated, portfolio"
-    thumbnail = ResizedImageField(size=[800, 600], upload_to='projects/', blank=True, null=True)
+    thumbnail = ResizedImageField(size=[800, 600],
+            help_text="Upload an image for the section. Recommended size: 800x600 pixels.",
+            upload_to='projects/', blank=True, null=True)
     is_featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -38,7 +40,8 @@ class ProjectSection(models.Model):
         size=[800, 600],                  # Resize image to 800x600
         upload_to='project_section/', 
         blank=True, 
-        null=True
+        null=True,
+        help_text="Upload an image for the section. Recommended size: 800x600 pixels.",
     )
     description = models.TextField(blank=True)
     order = models.PositiveIntegerField(default=0)
@@ -57,7 +60,9 @@ class Service(models.Model):
     short_description = models.CharField(max_length=200, blank=True)
     description = models.TextField(blank=True)
     icon = models.CharField(max_length=50, blank=True)  # Or use an ImageField for icons
-    logo = ResizedImageField(size=[300, 200], upload_to='services/', blank=True, null=True)
+    logo = ResizedImageField(size=[300, 200],
+        help_text="Upload an image for the section. Recommended size: 300x200 pixels.",
+        upload_to='services/', blank=True, null=True)
     is_featured = models.BooleanField(default=False)
     order = models.PositiveIntegerField(default=0)
 
@@ -75,7 +80,9 @@ class Service(models.Model):
 
 class BrandingCaseStudy(models.Model):
     name = models.CharField(max_length=100)
-    logo = ResizedImageField(size=[300, 200], upload_to='case_studies/', blank=True, null=True)
+    logo = ResizedImageField(size=[300, 200], upload_to='case_studies/',
+            help_text="Upload an image for the section. Recommended size: 300x200 pixels.",
+            blank=True, null=True)
     description = models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -99,7 +106,8 @@ class BrandingCaseStudySection(models.Model):
         size=[800, 600],                  # Resize image to 800x600
         upload_to='case_study_sections/', 
         blank=True, 
-        null=True
+        null=True,
+        help_text="Upload an image for the section. Recommended size: 800x600 pixels."
     )
     description = models.TextField(blank=True)
     order = models.PositiveIntegerField(default=0)
@@ -117,7 +125,9 @@ class Testimonial(models.Model):
     client_name = models.CharField(max_length=100)
     client_title = models.CharField(max_length=100, blank=True)
     client_company = models.CharField(max_length=100, blank=True)
-    client_photo = ResizedImageField(size=[200, 200], upload_to='testimonials/', blank=True, null=True)
+    client_photo = ResizedImageField(size=[200, 200],
+        help_text="Upload an image for the section. Recommended size: 200x200 pixels.",
+        upload_to='testimonials/', blank=True, null=True)
     content = models.TextField()
     is_featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -133,7 +143,9 @@ class TeamMember(models.Model):
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
-    photo = ResizedImageField(size=[400, 400], upload_to='team/', blank=True, null=True)
+    photo = ResizedImageField(size=[400, 400], upload_to='team/',
+        help_text="Upload an image for the section. Recommended size: 400x400 pixels.",
+         blank=True, null=True)
     is_active = models.BooleanField(default=True)
     order = models.PositiveIntegerField(default=0)
     facebook_url = models.URLField(
@@ -203,9 +215,15 @@ class SiteSetting(models.Model):
     # social_links = models.JSONField(default=dict, blank=True)  # Stores social media links as JSON
     hero_title = models.CharField(max_length=200, blank=True)
     hero_subtitle = models.CharField(max_length=300, blank=True)
-    hero_image = ResizedImageField(size=[1600, 900], upload_to='hero/', blank=True, null=True)
-    hero_image1= ResizedImageField(size=[1600, 900], upload_to='hero/', blank=True, null=True)
-    hero_image2= ResizedImageField(size=[1600, 900], upload_to='hero/', blank=True, null=True)
+    hero_image = ResizedImageField(size=[1600, 900], upload_to='hero/',
+    help_text="Upload an image for the section. Recommended size: 1600x900 pixels.",
+     blank=True, null=True)
+    hero_image1= ResizedImageField(size=[1600, 900], upload_to='hero/',
+    help_text="Upload an image for the section. Recommended size: 1600x900 pixels.",
+     blank=True, null=True)
+    hero_image2= ResizedImageField(size=[1600, 900], upload_to='hero/',
+    help_text="Upload an image for the section. Recommended size: 1600x900 pixels.",
+     blank=True, null=True)
     cta_button_text = models.CharField(max_length=50, default="Contact Us")
     facebook_url = models.URLField(
         blank=True,
@@ -261,7 +279,8 @@ class MoveableLogo(models.Model):
         size=[200, 200],
         upload_to='mvicons/',
         blank=True,
-        null=True
+        null=True,
+        help_text="Upload an image for the section. Recommended size: 200x200 pixels.",
     )
     order = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
