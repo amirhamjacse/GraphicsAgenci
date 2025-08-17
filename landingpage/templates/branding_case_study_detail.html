@@ -157,9 +157,9 @@
   <div class="container">
     <div class="text-center mb-5">
       <h1 class="display-5" style="font-weight: 700;">{{ case_study.name }}</h1>
-      {% if case_study.logo %}
+      <!-- {% if case_study.logo %}
         <img src="{{ case_study.logo.url }}" alt="{{ case_study.name }} Logo" class="img-fluid my-4" style="max-height: 200px;">
-      {% endif %}
+      {% endif %} -->
       {% if case_study.description %}
         <p class="lead" style="color: #555;">{{ case_study.description }}</p>
       {% endif %}
@@ -351,15 +351,15 @@
     <section class="case-study-detail py-5" style="background: #f9f9f9;">
       <div class="container">
         <div class="text-center mb-5">
-          <h1 class="display-5" style="font-weight: 700;">{{ case_study.name }}</h1>
-          {% if case_study.logo %}
+          <h1 class="display-5 pt-5" style="font-weight: 700;">{{ case_study.name }}</h1>
+          <!-- {% if case_study.logo %}
           <img
             src="{{ case_study.logo.url }}"
             alt="{{ case_study.name }} Logo"
             class="img-fluid my-4"
             style="max-height: 200px"
           />
-          {% endif %}
+          {% endif %} -->
           {% if case_study.description %}
           <p class="lead" style="color: #555;">{{ case_study.description }}</p>
           {% endif %}
