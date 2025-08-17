@@ -204,6 +204,8 @@ class SiteSetting(models.Model):
     hero_title = models.CharField(max_length=200, blank=True)
     hero_subtitle = models.CharField(max_length=300, blank=True)
     hero_image = ResizedImageField(size=[1600, 900], upload_to='hero/', blank=True, null=True)
+    hero_image1= ResizedImageField(size=[1600, 900], upload_to='hero/', blank=True, null=True)
+    hero_image2= ResizedImageField(size=[1600, 900], upload_to='hero/', blank=True, null=True)
     cta_button_text = models.CharField(max_length=50, default="Contact Us")
     facebook_url = models.URLField(
         blank=True,
