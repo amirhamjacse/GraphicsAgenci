@@ -26,6 +26,31 @@ class Project(models.Model):
         ordering = ['-created_at']
 
 
+
+class ProjectSection(models.Model):
+    project_sec = models.ForeignKey(
+        'Project',
+        on_delete=models.CASCADE,
+        related_name='project'
+    )
+    title = models.CharField(max_length=200, blank=True)
+    image = ResizedImageField(
+        size=[800, 600],                  # Resize image to 800x600
+        upload_to='project_section/', 
+        blank=True, 
+        null=True
+    )
+    description = models.TextField(blank=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title or f"project {self.pk} for {self.project_sec.title}"
+
+
+
 class Service(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True, blank=True)

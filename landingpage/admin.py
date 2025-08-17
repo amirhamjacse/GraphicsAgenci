@@ -2,7 +2,8 @@ from django.contrib import admin
 from .models import (Project, Service, BrandingCaseStudy, 
                     Testimonial, TeamMember, ContactSubmission,
                     SiteSetting, HomeSection,
-                    MoveableLogo)
+                    MoveableLogo,
+                    ProjectSection)
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -107,9 +108,22 @@ class BrandingCaseStudySectionInline(admin.StackedInline):  # or TabularInline f
     extra = 1  # How many empty forms to show
     fields = ['title', 'image', 'description', 'order']
     ordering = ['order']
+
 @admin.register(BrandingCaseStudySection)
 class BrandingCaseStudySectionAdmin(admin.ModelAdmin):
     list_display = ['title', 'case_study', 'order']
     list_filter = ['case_study']
     search_fields = ['title', 'description']
     ordering = ['case_study', 'order']
+
+# admin.py
+from django.contrib import admin
+from .models import ProjectSection
+
+from django.contrib import admin
+from .models import ProjectSection
+
+@admin.register(ProjectSection)
+class ProjectSectionAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "description")  # fields that actually exist
+    search_fields = ("title", "description")       # searchable fields

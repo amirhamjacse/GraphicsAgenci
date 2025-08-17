@@ -184,3 +184,41 @@ class BrandingCaseStudyDetailView(DetailView):
         context['next_case'] = next_case
         context['previous_case'] = previous_case
         return context
+
+
+class ProjectDetailView(DetailView):
+    model = Project
+    template_name = 'project_details_page.html'
+    context_object_name = 'project'
+
+    def get_queryset(self):
+        # Only active/featured projects (you can adjust this filter)
+        return Project.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        project = self.object
+
+        # 🔹 Add related sections
+        context['sections'] = ProjectSection.objects.filter(project_sec=project)
+
+        # 🔹 Add site settings (if you have)
+        try:
+            context['site_settings'] = SiteSetting.objects.first()
+        except:
+            context['site_settings'] = None
+
+        # 🔹 Next project (created before current)
+        next_project = Project.objects.filter(
+            created_at__lt=project.created_at
+        ).order_by('-created_at').first()
+
+        # 🔹 Previous project (created after current)
+        previous_project = Project.objects.filter(
+            created_at__gt=project.created_at
+        ).order_by('created_at').first()
+
+        context['next_project'] = next_project
+        context['previous_project'] = previous_project
+
+        return context
