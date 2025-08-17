@@ -151,8 +151,8 @@ input[type="file"].form-control-file:focus {
 
     <!-- Overlay Content (centered) -->
     <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100" style="top:0; bottom:0;">
-      <h1>{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
-      <h3>{{ site_settings.hero_subtitle|default:"Hello There" }}</h3>
+      {% comment %} <h1>{{ site_settings.hero_title|default:"Welcome to DesignClock" }}</h1>
+      <h3>{{ site_settings.hero_subtitle|default:"Hello There" }}</h3> {% endcomment %}
       <a href="#contact" class="btn btn-lg mt-3" style="background-color:#ff590d; color:#fff; border:none;">
         {{ site_settings.cta_button_text|default:"Hire Us" }}
       </a>
